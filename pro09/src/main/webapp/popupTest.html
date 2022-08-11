@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트에서 쿠키 사용</title>
+<script type="text/javascript">
+window.onload=pageLoad;
+//브라우저에 웹 페이지가 로드될 때 pageLoad()함수 호출하여 실행
+function pageLoad(){
+	notShowPop=getCookieValue();
+	//notShowPop은 결국 result값을 받음
+	
+	if(notShowPop!="true"){
+	//notShowPop!=true ==> notShowPop=false 의미
+		window.open("popUp.html","pop","width=400,height=500,history=no, resizable=no,status=no,scrollbars=yes,menubar=no");
+	//false라면 윈도우에 팝업창 띄움
+	}
+}
+function getCookieValue(){
+	var result="false";
+	//getCookieValue() -> result 반환하는 함수
+	//result 초기값은 false
+	if(document.cookie!=""){
+	//문서에서 cookie가 비어있지 않다면 if문 입장
+	//쿠키 비었으면 바로 result로
+		cookie=document.cookie.split(";");
+		//쿠키를 ;단위로 나눠 cookie 배열에 삽입
+		//cookie[0]=notShowPop=false  cookie[1]=path=/   cookie[2]=expires=-1
+		for(var i=0; i<cookie.length; i++){
+		//분리한 배열번호까지 1씩 증가하는 for문
+			element=cookie[i].split("=");
+			//cookie[i]값을 =단위로 나눠  element 배열에 삽입
+			//element[0]=notShowPop   element[1]=flase
+			value=element[0];
+			//value=notShowPop
+			value=value.replace(/^\s*/,'');
+			//value에 스페이스 방지위해 스페이스 눌리면 빈공백으로 대체
+			if(value=="notShowPop"){
+				result=element[1];
+				//if value값이 notShowPop이면 반환값에 element[1]삽입
+				//즉 true or false
+			}
+		}
+	}
+		return result;
+}
+function deleteCookie(){
+		document.cookie="notShowPop="+ false +";path=/; expires=-1";
+		//세션사용, notShowPop을 false로 생성
+}
+
+</script>
+</head>
+<body>
+<form>
+<input type=button value="쿠키삭제" onClick="deleteCookie()"></form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function setPopUpStart(obj) {
+	//setPopUpStart 함수
+		if (obj.checked == true) {
+		//매개변수 this를 받으니 만약 checked 됐으면
+			var expireDate = new Date();
+			//기간을 새 객체로 생성
+			expireDate.setMonth(expireDate.getMonth() + 1);
+			//그리고 그 변수에 1달이라는 기간 세팅
+			document.cookie = "notShowPop=" + true + ";path=/; expires="+ expireDate.toGMTString();
+			//GMTSTring -> 인터넷 그리니치 표준시를 따르는 날짜를 String으로 표현하는 함수
+			window.close();
+			//팝업 닫음
+		}
+	}
+</script>
+</head>
+<body>
+	알림 팝업창입니다.
+	<br><br><br><br><br><br><br>
+	<form>
+		<input type=checkbox onClick="setPopUpStart(this)">오늘 더 이상 팝업창 띄우지 않기
+	</form>
+</body>
+</html>
