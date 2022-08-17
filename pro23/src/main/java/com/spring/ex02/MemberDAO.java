@@ -1,7 +1,6 @@
-package com.spring.ex01;
+package com.spring.ex02;
 
 import java.io.Reader;
-import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -25,15 +24,17 @@ public class MemberDAO {
 		return sqlMapper;
 	}
 
-	public List<MemberVO> selectAllMemberList() {
+	public String selectName() {
 		sqlMapper = getInstance();
 		SqlSession session = sqlMapper.openSession();
-		List<MemberVO> memlist = null;
-		memlist = session.selectList("mapper.member.selectAllMemberList");
-		return memlist;
+		String name = (String) session.selectOne("mapper.member.selectName");
+		return name;
 	}
 
-	
-
-	
+	public String selectPwd() {
+		sqlMapper = getInstance();
+		SqlSession session = sqlMapper.openSession();
+		String pwd = (String) session.selectOne("mapper.member.selectPwd");
+		return pwd;
+	}
 }

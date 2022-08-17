@@ -1,4 +1,4 @@
-package com.spring.ex01;
+package com.spring.ex03;
 
 import java.io.Reader;
 import java.util.List;
@@ -7,6 +7,8 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import com.spring.ex01.MemberVO;
 
 public class MemberDAO {
 	private static SqlSessionFactory sqlMapper = null;
@@ -28,12 +30,23 @@ public class MemberDAO {
 	public List<MemberVO> selectAllMemberList() {
 		sqlMapper = getInstance();
 		SqlSession session = sqlMapper.openSession();
-		List<MemberVO> memlist = null;
-		memlist = session.selectList("mapper.member.selectAllMemberList");
-		return memlist;
+		List<MemberVO> memberslist = null;
+		memberslist = session.selectList("mapper.member.selectAllMemberList");
+		return memberslist;
 	}
 
-	
+	public MemberVO selectMemberById(String id) {
+		sqlMapper = getInstance();
+		SqlSession session = sqlMapper.openSession();
+		MemberVO memberVO = (MemberVO) session.selectOne("mapper.member.selectMemberById", id);
+		return memberVO;
+	}
 
-	
+	public List<MemberVO> selectMemberByPwd(int pwd) {
+		sqlMapper = getInstance();
+		SqlSession session = sqlMapper.openSession();
+		List<MemberVO> memberslist = null;
+		memberslist = session.selectList("mapper.member.selectMemberByPwd", pwd);
+		return memberslist;
+	}
 }
