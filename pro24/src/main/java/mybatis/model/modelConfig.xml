@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.spring.member.vo.MemberVO" alias="memberVO" />
 	</typeAliases>
+=======
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.spring.member.vo.MemberVO" alias="memberVO" />
+	</typeAliases>
+>>>>>>> afb31d9b9f65a8144dd12a3fb4853ed97ec5c837
 </configuration>	 
