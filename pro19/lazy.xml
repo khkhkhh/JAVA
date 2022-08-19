@@ -5,4 +5,5 @@
 	<bean id="firstBean" class="com.spring.ex04.First" lazy-init="false" />
 	<bean id="secondBean" class="com.spring.ex04.Second" lazy-init="true" />
 	<bean id="thirdBean" class="com.spring.ex04.Third" lazy-init="default" />
+
 </beans>

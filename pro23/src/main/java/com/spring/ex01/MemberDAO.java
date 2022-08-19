@@ -31,5 +31,10 @@ public class MemberDAO {
 		List<MemberVO> memlist = null;
 		memlist = session.selectList("mapper.member.selectAllMemberList");
 		return memlist;
-	}	
+	}
+
+	
+
+	
 }
+

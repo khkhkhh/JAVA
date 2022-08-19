@@ -31,4 +31,5 @@ request.setCharacterEncoding("UTF-8");
 		</c:forEach>
 	</table>
 </body>
+
 </html>

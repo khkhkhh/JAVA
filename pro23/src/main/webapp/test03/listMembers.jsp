@@ -32,4 +32,5 @@ request.setCharacterEncoding("UTF-8");
 	</table>
 <a href="${contextpath}/member/memberForm.do"><h1 style="text-align:center">회원가입</h1></a>
 </body>
+
 </html>

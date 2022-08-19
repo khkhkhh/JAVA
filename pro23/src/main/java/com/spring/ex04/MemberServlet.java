@@ -86,7 +86,7 @@ public class MemberServlet extends HttpServlet {
 			memberVO.setPwd(pwd);
 			memberVO.setName(name);
 			memberVO.setEmail(email);
-			dao.updateMember(memberVO);
+			dao.insertMember(memberVO);
 			nextPage = "/mem4.do?action=listMembers";
 		} else if (action.equals("deleteMember")) {
 			String id = request.getParameter("id");
@@ -122,23 +122,9 @@ public class MemberServlet extends HttpServlet {
 			nextPage = "test04/listMembers.jsp";
 		}
 
-		
-		
-//		
-//		else if (action.equals("updateMember2")) {
-//			String id = request.getParameter("id");
-//	        memberVO memInfo = dao.selectMemberById(id);
-//	        request.setAttribute("", memInfo);
-//	        nextPage = "/test03/modMemberForm.jsp";
-//			nextPage = "test04/modMember.jsp";
-//		}
-//
-//		
-		
-		
-		
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
 		dispatch.forward(request, response);
 	}
 
 }
+

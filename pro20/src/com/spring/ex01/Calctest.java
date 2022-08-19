@@ -16,3 +16,4 @@ public class Calctest {
 		cal.divide(100, 20);
 	}
 }
+
